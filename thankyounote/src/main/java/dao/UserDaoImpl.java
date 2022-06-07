@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     @Autowired
     SqlSession session;
@@ -16,5 +16,10 @@ public class UserDaoImpl implements UserDao{
     @Override
     public UserDto loginCheck(Map<String, String> map) {
         return session.selectOne("userMapper.loginCheck", map);
+    }
+
+    @Override
+    public UserDto valCheck(String id) {
+        return session.selectOne("userMapper.valCheck", id);
     }
 }

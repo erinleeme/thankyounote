@@ -45,6 +45,7 @@
     }
 
     .button {
+        font-family: 'YeolrinGothic-Light';
         background-color: #555555;
         border: none;
         color: white;
@@ -52,8 +53,10 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
+        font-size: 14px;
         float: bottom;
+        /* 손가락 커서 */
+        cursor: pointer;
     }
 
     #innerbox {
@@ -129,7 +132,9 @@
     <meta charset="UTF-8">
 </head>
 <body>
-
+<div id="indexout">
+    <a href="/user/register">new</a>
+</div>
 <div id="indexbox">
     <div id="innerbox">
         <div id="title">

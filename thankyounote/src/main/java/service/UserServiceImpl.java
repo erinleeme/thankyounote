@@ -34,4 +34,26 @@ public class UserServiceImpl implements UserService{
             return "exist";
         }
     }
+
+    @Override
+    public void logout() {
+        //세션 종료
+        session.invalidate();
+    }
+
+    @Override
+    public String valCheck(String id) {
+
+        UserDto userDto = null;
+
+        userDto = userDao.valCheck(id);
+
+        if(userDto == null) {
+            return "non_exist";
+        } else {
+
+            return "exist";
+        }
+
+    }
 }
