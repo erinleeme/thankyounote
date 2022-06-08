@@ -55,7 +55,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        height: 520px;
+        height: 440px;
         width: 600px;
         margin: -280px 0px 0px -320px;
         display: inline-block;
@@ -97,16 +97,18 @@
         font-family: 'ParkYongJun';
         font-size: 20px;
         color: coral;
-        height: 50px;
+        height: 30px;
     }
 
     #register {
-        /*border: red 1px solid;*/
+        border: red 1px solid;
         font-family: 'ParkYongJun';
         font-size: 30px;
         /*height: 190px;*/
-        align-items: center;
+        margin: auto;
         padding: 12px ;
+        height: 250px;
+
     }
 
     #userid {
@@ -119,6 +121,7 @@
         padding: 0 0 0 20px;
         font-family: 'ParkYongJun';
         font-size: 20px;
+
     }
 
     #userpwd {
@@ -164,20 +167,29 @@
     }
 
     #idcheck {
+        /*border: blue 1px solid;*/
         font-family: 'YeolrinGothic-Light';
-        color: coral;
+        color: crimson;
         font-size: 13px;
         padding-bottom: 5px;
-        text-align: center;
+        width: 270px;
+        margin: auto;
+        text-align: left;
     }
 
     #pwdcheck {
+        /*border: blue 1px solid;*/
         font-family: 'YeolrinGothic-Light';
-        color: coral;
+        color: crimson;
         font-size: 13px;
         padding-bottom: 5px;
-        padding-left: 60px;
-        text-align: center;
+        margin: auto;
+        width: 270px;
+        text-align: left;
+    }
+
+    #buttonDiv {
+        border: 1px solid blue;
     }
 
     #valBtn {
@@ -189,7 +201,6 @@
         /*border-radius: 15%;*/
     }
 
-
 </style>
 <html>
 <head>
@@ -197,60 +208,62 @@
 </head>
 <body>
 <form id="registerForm">
-<div id="indexout">
-    <%--  <c:set var="loginCheck" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>--%>
-    <%--  ${sessionScope.id}--%>
-    <%--  <c:set var="id" value="${sessionScope.id}"/>--%>
-    <c:if test="${empty sessionScope.id}">
-        <a href="/user/login">login</a> / <a href="#">new</a>
-    </c:if>
-    <c:if test="${not empty sessionScope.id}">
-        <a href="#">${sessionScope.name}님</a>
-        <%-- 로그아웃 --%>
-        <button class="logoutBtn">logout</button>
+    <div id="indexout">
+        <%--  <c:set var="loginCheck" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>--%>
+        <%--  ${sessionScope.id}--%>
+        <%--  <c:set var="id" value="${sessionScope.id}"/>--%>
+        <c:if test="${empty sessionScope.id}">
+            <a href="/user/login">login</a> / <a href="/user/register">new</a>
+        </c:if>
+        <c:if test="${not empty sessionScope.id}">
+            <a href="#">${sessionScope.name}님</a>
+            <%-- 로그아웃 --%>
+            <button class="logoutBtn">logout</button>
 
-    </c:if>
-</div>
-
-<div id="indexbox">
-    <div id="innerbox">
-        <div id="title">
-           WELCOME
-        </div>
-
-        <%--login--%>
-        <div id="register">
-            <div class="registerForm">
-                <label for="userid" class="blind">ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-                <input id="userid" size="23" type="text">
-                <input id="valBtn" type="button" value="중복체크">
-                <input type="text" name="valCheck" id="valCheck" value="">
-            </div>
-            <%--유효성 검사 안내란--%>
-            <div id="idcheck">*5~20자의 영문, 소문자만 사용가능합니다.</div>
-
-            <div class="registerForm">
-                <label for="userpwd" class="blind">PWD&nbsp&nbsp&nbsp</label>
-                <input id="userpwd" size="30" type="password">
-            </div>
-            <%--유효성 검사 안내란--%>
-            <div id="pwdcheck">*8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</div>
-
-            <div class="registerForm">
-                <label for="username" class="blind">NAME&nbsp&nbsp</label>
-                <input id="username" size="30" type="text">
-            </div>
-
-        </div>
-
-        <%--유효성 검사 안내란--%>
-        <div id="check"></div>
-
-        <%--login/back 버튼--%>
-        <button id="registerBtn" class="button">register</button>
-        <button class="button" onclick="location.href='/';">back</button>
+        </c:if>
     </div>
-</div>
+
+    <div id="indexbox">
+        <div id="innerbox">
+            <div id="title">
+               WELCOME
+            </div>
+
+            <%--login--%>
+            <div id="register">
+                <div class="registerForm">
+                    <label for="userid" class="blind">ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                    <input id="userid" size="30" type="text">
+    <%--                <input id="valBtn" type="button" value="중복체크">--%>
+                    <input type="hidden" name="valCheck" id="valCheck" value="">
+                </div>
+                <%--유효성 검사 안내란--%>
+                <div id="idcheck"></div>
+
+                <div class="registerForm">
+                    <label for="userpwd" class="blind">PWD&nbsp&nbsp&nbsp</label>
+                    <input id="userpwd" size="30" type="password">
+                </div>
+                <%--유효성 검사 안내란--%>
+                <div id="pwdcheck"></div>
+
+                <div class="registerForm">
+                    <label for="username" class="blind">NAME&nbsp&nbsp</label>
+                    <input id="username" size="30" type="text">
+                </div>
+
+            </div>
+
+            <%--유효성 검사 안내란--%>
+            <div id="check"></div>
+
+            <%--login/back 버튼--%>
+            <div id="buttonDiv">
+                <button id="registerBtn" class="button">register</button>
+                <button class="button" onclick="location.href='/';">back</button>
+            </div>
+        </div>
+    </div>
 </form>
 </body>
 </html>
@@ -264,42 +277,48 @@
             $('#check').text('아이디를 입력해 주세요.');
         else if($('#userpwd').val() == '')
             $('#check').text('비밀번호를 입력해 주세요.');
-        else if($('#valCheck').val() != $('#userid').val()){
-            $('#idcheck').empty();
-            $('#idcheck').text('아이디 중복체크 하세요.');
-        }
-        else
+        else if($('#valCheck').val() != $('#userid').val())
+            $('#check').text('아이디 중복체크 하세요.');
+        else {
             $.ajax({
                 type: 'post',
                 url: '/user/register',
                 data: $('#registerForm').serialize(),
-                success: function(data){
+                success: function(data) {
                     alert('회원가입을 축하');
-                    location.href="/";
+                    location.href = "/";
                 },
-                error: function(error) {
+                error: function (error) {
                     alert(error);
                 }
             });
+        }
     });
-
+</script>
+<script type="text/javascript">
     //아이디 중복체크
-    $('#valBtn').focusout(function(){
-        // $('#idcheck').empty();
+    $('#userid').focusout(function(){
+        $('#idcheck').empty();
+        var idlength = $('#userid').val().length;
 
         var id = $('#userid').val();
 
         if(id == '') {
-            $('#check').text('먼저 아이디를 입력해 주세요.');
-        } else {
+            $('#idcheck').text('필수 정보입니다.');
+        }  else if( idlength < 6 || idlength > 20) {
+            $('#idcheck').text('5~20자의 영문, 소문자만 사용가능합니다.');
+        }
+        else {
             $.ajax({
                 type: 'post',
                 url: '/user/valCheck',
-                data: 'id = ' + id,
+                data: {
+                  'id' : id
+                },
+                dataType: 'text',
                 success: function(data){
                     data = data.trim();
-                    alert(data);
-
+                    alert(id);
                     if(data=='exist'){
                         $('#idcheck').text('이미 존재하는 아이디입니다.');
                     } else {
@@ -310,12 +329,20 @@
                 error: function(error) {
                     alert(error);
                 }
-
             });
-
         }
-
     });
 
+    $('#userpwd').focusout(function(){
+        $('#pwdcheck').empty();
+        var pwdlength = $('#userpwd').val().length;
+
+        if($('#userpwd').val() == '') {
+            $('#pwdcheck').text('필수 정보입니다.');
+        }
+        else if( pwdlength < 8 || pwdlength > 16) {
+            $('#pwdcheck').text('8~16자 영문, 소문자만 사용가능합니다.');
+        }
+    }) ;
 </script>
 

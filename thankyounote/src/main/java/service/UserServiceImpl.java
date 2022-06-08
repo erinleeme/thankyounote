@@ -48,6 +48,8 @@ public class UserServiceImpl implements UserService{
 
         userDto = userDao.valCheck(id);
 
+        System.out.println("userDTO : " + userDto);
+
         if(userDto == null) {
             return "non_exist";
         } else {

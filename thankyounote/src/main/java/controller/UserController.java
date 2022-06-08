@@ -50,6 +50,8 @@ public class UserController {
     @PostMapping("/valCheck")
     @ResponseBody
     public String valCheck(String id) {
+        System.out.println("valCheck() >>>>>>>>>>>>>>>>>>>>>>>>>>>>> id : " + id);
+
         return userService.valCheck(id);
     }
 
