@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean|tx:annotation-driven)*>
+        <!ATTLIST beans
+                xmlns:mvc CDATA #REQUIRED
+                xmlns:xsi CDATA #REQUIRED
+                xmlns CDATA #REQUIRED
+                xmlns:context CDATA #REQUIRED
+                xmlns:tx CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT bean (property|constructor-arg)*>
+        <!ATTLIST bean
+                class CDATA #REQUIRED
+                id CDATA #REQUIRED>
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                name CDATA #REQUIRED
+                ref CDATA #IMPLIED
+                value CDATA #IMPLIED>
+        <!ELEMENT constructor-arg (#PCDATA)>
+        <!ATTLIST constructor-arg
+                ref CDATA #REQUIRED>
+        <!ELEMENT tx:annotation-driven (#PCDATA)>
+        ]>
 <beans xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
@@ -7,7 +30,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+
+>
+
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!--		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>-->
@@ -32,6 +58,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <tx:annotation-driven/>
+
 
 
 </beans>

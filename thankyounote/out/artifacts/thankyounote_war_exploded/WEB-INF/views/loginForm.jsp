@@ -63,7 +63,6 @@
         /*border: red 1px solid;*/
     }
 
-
     #title {
         /*border: blue 1px solid;*/
         font-family: 'ParkYongJun';
@@ -123,7 +122,6 @@
         height: 50px;
     }
 
-
 </style>
 
 <!DOCTYPE html>
@@ -156,7 +154,6 @@
         <%--유효성 검사 안내란--%>
         <div id="check"></div>
 
-
         <%--login/back 버튼--%>
         <button id="loginBtn" class="button">login</button>
         <button class="button" onclick="location.href='/';">back</button>
@@ -185,11 +182,8 @@
               dataType: 'text',
               success: function(data){
                   data = data.trim();
-
                   if(data=='exist'){
-
                       location.href="/";
-
                   } else if(data=='non_exist'){
                       $('#check').empty();
                       $('#check').text('아이디 또는 비밀번호를 잘못 입력했습니다.');

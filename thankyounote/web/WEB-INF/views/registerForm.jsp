@@ -288,7 +288,7 @@
                     alert('회원가입을 축하');
                     location.href = "/";
                 },
-                error: function (error) {
+                error: function(error) {
                     alert(error);
                 }
             });
@@ -300,7 +300,6 @@
     $('#userid').focusout(function(){
         $('#idcheck').empty();
         var idlength = $('#userid').val().length;
-
         var id = $('#userid').val();
 
         if(id == '') {
