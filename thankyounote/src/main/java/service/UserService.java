@@ -9,4 +9,6 @@ public interface UserService {
     void logout();
 
     String valCheck(String id);
+
+    void register(Map<String, String> map);
 }

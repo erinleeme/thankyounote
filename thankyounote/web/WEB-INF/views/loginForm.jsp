@@ -20,12 +20,14 @@
         float: right;
         font-size: 20px;
 
+
     }
 
     #indexout a {
+        font-family: 'ParkYongJun';
         text-decoration: none;
         box-shadow: none;
-        color: black;
+        color: coral;
     }
 
     #indexbox {
@@ -53,7 +55,7 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 14px;
+        font-size: 16px;
         float: bottom;
         /* 손가락 커서 */
         cursor: pointer;
@@ -131,7 +133,7 @@
 </head>
 <body>
 <div id="indexout">
-    <a href="/user/register">new</a>
+    <a href="/user/register">Not a member yet?</a>
 </div>
 <div id="indexbox">
     <div id="innerbox">

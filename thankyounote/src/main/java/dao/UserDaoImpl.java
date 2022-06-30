@@ -22,4 +22,9 @@ public class UserDaoImpl implements UserDao {
     public UserDto valCheck(String id) {
         return session.selectOne("userMapper.valCheck", id);
     }
+
+    @Override
+    public void register(Map<String, String> map) {
+        session.insert("userMapper.register", map);
+    }
 }

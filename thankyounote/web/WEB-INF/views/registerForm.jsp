@@ -208,21 +208,6 @@
 </head>
 <body>
 <form id="registerForm">
-    <div id="indexout">
-        <%--  <c:set var="loginCheck" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>--%>
-        <%--  ${sessionScope.id}--%>
-        <%--  <c:set var="id" value="${sessionScope.id}"/>--%>
-        <c:if test="${empty sessionScope.id}">
-            <a href="/user/login">login</a> / <a href="/user/register">new</a>
-        </c:if>
-        <c:if test="${not empty sessionScope.id}">
-            <a href="#">${sessionScope.name}님</a>
-            <%-- 로그아웃 --%>
-            <button class="logoutBtn">logout</button>
-
-        </c:if>
-    </div>
-
     <div id="indexbox">
         <div id="innerbox">
             <div id="title">

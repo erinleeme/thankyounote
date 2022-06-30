@@ -11,4 +11,9 @@
         select * from user where id = #{id}
     </select>
 
+    <insert id="register" parameterType="java.util.Map">
+        insert into user (id, pwd, name, reg_date, up_date)
+        values (#{id}, #{pwd}, #{name}, now(), now())
+    </insert>
+
 </mapper>

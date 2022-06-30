@@ -44,10 +44,12 @@
 
   }
 
-  #indexout a {
+  #bottom a {
+    font-family: 'ParkYongJun';
     text-decoration: none;
     box-shadow: none;
-    color: black;
+    color: coral;
+    font-size: 20px;
   }
 
   #indexbox {
@@ -55,7 +57,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 550px;
+    height: 560px;
     width: 600px;
     margin: -280px 0px 0px -320px;
     display: inline-block;
@@ -75,12 +77,12 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     float: bottom;
     /* 손가락 커서 */
     cursor: pointer;
+    margin-bottom: 17px;
   }
-
 
 
   .logoutBtn {
@@ -98,9 +100,6 @@
     cursor: pointer;
     border: 1px #555555 solid;
 
-  }
-  #innerbox {
-    /*border: red 1px solid;*/
   }
 
   #title {
@@ -121,14 +120,10 @@
 <%--  <c:set var="loginCheck" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>--%>
 <%--  ${sessionScope.id}--%>
 <%--  <c:set var="id" value="${sessionScope.id}"/>--%>
-  <c:if test="${empty sessionScope.id}">
-    <a href="/user/login">login</a> / <a href="/user/register">new</a>
-  </c:if>
   <c:if test="${not empty sessionScope.id}">
     <a href="#">${sessionScope.name}님</a>
     <%-- 로그아웃 --%>
     <button class="logoutBtn">logout</button>
-
   </c:if>
 </div>
 
@@ -142,19 +137,22 @@
 
     <%--고양이 로고 표시--%>
     <div id="logo">
-      <a href="/"><img width="450" src="/resources/img/icon/lazycat1.gif"></a>
+      <a href="/"><img width="420" src="/resources/img/icon/lazycat1.gif"></a>
     </div>
 
-    <c:if test="${empty sessionScope.id}">
-    <%--감사노트쓰러가기--%>
-    <button class="button">write</button>
-    </c:if>
-    <c:if test="${not empty sessionScope.id}">
-    <%--감사노트쓰러가기--%>
-    <button class="button">write</button>
-    <%-- 나의 감사목록 --%>
-    <button class="thankyouBtn">my thankyou</button>
-    </c:if>
+    <div id="bottom">
+      <c:if test="${empty sessionScope.id}">
+        <%--감사노트쓰러가기--%>
+        <button class="button" onclick="location.href='/user/login'">login</button><br>
+        <a href="/user/register">Not a member yet?</a>
+      </c:if>
+      <c:if test="${not empty sessionScope.id}">
+        <%--감사노트쓰러가기--%>
+        <button id="writeBtn" class="button">write</button>
+        <%-- 나의 감사목록 --%>
+        <button class="thankyouBtn">my thankyou</button>
+      </c:if>
+    </div>
   </div>
 </div>
 
@@ -188,5 +186,13 @@
         alert(error);
       }
     });
+  });
+
+  $('#writeBtn').click(function(){
+
+
+
+
+    location.href="/user/write";
   });
 </script>

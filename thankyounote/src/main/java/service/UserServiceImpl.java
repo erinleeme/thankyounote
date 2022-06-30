@@ -2,6 +2,7 @@ package service;
 
 import dao.UserDao;
 import dto.UserDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -33,6 +35,11 @@ public class UserServiceImpl implements UserService{
 
             return "exist";
         }
+    }
+
+    @Override
+    public void register(Map<String, String> map) {
+        userDao.register(map);
     }
 
     @Override

@@ -28,6 +28,13 @@ public class UserController {
         return "registerForm";
     }
 
+    @PostMapping("/register")
+    public void register(@RequestParam Map<String, String> map) {
+        System.out.println("register() >>>>>>>>>>>>>>>>>>>>>>>>>>. map : " + map);
+
+        userService.register(map);
+    }
+
     @PostMapping(value="/loginCheck")
     @ResponseBody
     public String loginCheck(@RequestParam Map<String, String> map) {
@@ -53,6 +60,11 @@ public class UserController {
         System.out.println("valCheck() >>>>>>>>>>>>>>>>>>>>>>>>>>>>> id : " + id);
 
         return userService.valCheck(id);
+    }
+
+    @GetMapping("/write")
+    public String writeForm() {
+        return "member";
     }
 
 }
